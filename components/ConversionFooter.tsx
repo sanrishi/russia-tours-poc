@@ -26,7 +26,7 @@ export default function ConversionFooter() {
     };
 
     try {
-      await fetch("https://formsubmit.co/ajax/sharmasanchitrishi@gmail.com", {
+      await fetch("https://formsubmit.co/ajax/13aa29576fde98edd847981ecffe4a5b", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
