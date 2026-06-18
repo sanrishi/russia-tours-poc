@@ -42,7 +42,7 @@ export default function ConversionFooter() {
   return (
     <section id="contact" className="relative py-24 md:py-32 bg-charcoal">
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.02] pointer-events-none"
         style={{
           backgroundImage: `radial-gradient(circle at 50% 0%, #d4af37 1px, transparent 1px)`,
           backgroundSize: "40px 40px",
