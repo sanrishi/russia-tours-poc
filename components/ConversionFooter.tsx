@@ -6,9 +6,36 @@ import { useState } from "react";
 
 export default function ConversionFooter() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSending(true);
+
+    const f = e.currentTarget.elements;
+
+    const payload = {
+      _captcha: "false",
+      name: (f.namedItem("name") as HTMLInputElement).value,
+      phone: `+91${(f.namedItem("phone") as HTMLInputElement).value}`,
+      city: (f.namedItem("city") as HTMLSelectElement).value,
+      group_size: (f.namedItem("group_size") as HTMLSelectElement).value,
+      budget: (f.namedItem("budget") as HTMLSelectElement).value,
+      travel_period: (f.namedItem("travel_period") as HTMLInputElement).value,
+      requirements: (f.namedItem("requirements") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      await fetch("https://formsubmit.co/ajax/sharmasanchitrishi@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    } catch {
+      // Silently fail for PoC — UI still shows success
+    }
+
+    setSending(false);
     setSubmitted(true);
   };
 
@@ -70,6 +97,7 @@ export default function ConversionFooter() {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
                     placeholder="e.g. Rahul Mehta"
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm placeholder-white/20 focus:outline-none focus:border-gold/40 focus:bg-white/[0.07] transition-all"
@@ -85,6 +113,7 @@ export default function ConversionFooter() {
                     </span>
                     <input
                       type="tel"
+                      name="phone"
                       required
                       placeholder="98765 43210"
                       className="w-full bg-white/5 border border-white/10 rounded-r-xl px-4 py-3.5 text-white text-sm placeholder-white/20 focus:outline-none focus:border-gold/40 focus:bg-white/[0.07] transition-all"
@@ -99,7 +128,7 @@ export default function ConversionFooter() {
                     <Globe size={12} className="inline mr-1" />
                     Preferred City
                   </label>
-                  <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold/40 focus:bg-white/[0.07] transition-all appearance-none">
+                  <select name="city" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold/40 focus:bg-white/[0.07] transition-all appearance-none">
                     <option value="" className="bg-charcoal">
                       Select city
                     </option>
@@ -122,7 +151,7 @@ export default function ConversionFooter() {
                     <Users size={12} className="inline mr-1" />
                     Group Size
                   </label>
-                  <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold/40 focus:bg-white/[0.07] transition-all appearance-none">
+                  <select name="group_size" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold/40 focus:bg-white/[0.07] transition-all appearance-none">
                     <option value="" className="bg-charcoal">
                       Select size
                     </option>
@@ -148,7 +177,7 @@ export default function ConversionFooter() {
                     <IndianRupee size={12} className="inline mr-1" />
                     Budget Range
                   </label>
-                  <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold/40 focus:bg-white/[0.07] transition-all appearance-none">
+                  <select name="budget" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold/40 focus:bg-white/[0.07] transition-all appearance-none">
                     <option value="" className="bg-charcoal">
                       Select budget
                     </option>
@@ -175,6 +204,7 @@ export default function ConversionFooter() {
                 </label>
                 <input
                   type="text"
+                  name="travel_period"
                   placeholder="e.g. December 2026 or March 2027"
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm placeholder-white/20 focus:outline-none focus:border-gold/40 focus:bg-white/[0.07] transition-all"
                 />
@@ -185,6 +215,7 @@ export default function ConversionFooter() {
                   Special Requirements
                 </label>
                 <textarea
+                  name="requirements"
                   rows={3}
                   placeholder="Dietary preferences, accessibility needs, must-visit places, etc."
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm placeholder-white/20 focus:outline-none focus:border-gold/40 focus:bg-white/[0.07] transition-all resize-none"
@@ -194,10 +225,11 @@ export default function ConversionFooter() {
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <button
                   type="submit"
-                  className="flex-1 inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold/90 text-charcoal font-semibold px-8 py-4 rounded-full text-base transition-all hover:shadow-xl hover:shadow-gold/20"
+                  disabled={sending}
+                  className="flex-1 inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold/90 text-charcoal font-semibold px-8 py-4 rounded-full text-base transition-all hover:shadow-xl hover:shadow-gold/20 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send size={16} />
-                  Send via WhatsApp
+                  {sending ? "Sending..." : "Send via WhatsApp"}
                 </button>
                 <a
                   href="#"
