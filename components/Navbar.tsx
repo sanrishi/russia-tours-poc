@@ -1,10 +1,21 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
 
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/places", label: "Places" },
+  { href: "/tips", label: "Useful Tips" },
+  { href: "/about", label: "About Me" },
+  { href: "/partner", label: "Partner with Us", external: true },
+];
+
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -13,6 +24,10 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <motion.header
@@ -26,37 +41,49 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold tracking-tight">
-          <span className="text-gold">SVETA</span>
-          <span className="text-white/70 font-normal"> | Signature Russia</span>
-        </a>
+        <Link href="/" className="flex flex-col leading-tight">
+          <span className="text-xl font-bold tracking-tight">
+            <span className="text-gold">Trips to</span>
+            <span className="text-white"> Russia</span>
+          </span>
+          <span className="text-[10px] text-white/40 tracking-widest uppercase">
+            by Indosvetka
+          </span>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <a
-            href="#tours"
-            className="text-sm text-white/60 hover:text-white transition-colors"
-          >
-            Signature Tours
-          </a>
-          <a
-            href="#destinations"
-            className="text-sm text-white/60 hover:text-white transition-colors"
-          >
-            Destinations
-          </a>
-          <a
-            href="#stories"
-            className="text-sm text-white/60 hover:text-white transition-colors"
-          >
-            The Experience
-          </a>
-          <a
-            href="#contact"
+          {navLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-white/60 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm transition-colors ${
+                  pathname === link.href
+                    ? "text-gold"
+                    : "text-white/60 hover:text-white"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ),
+          )}
+          <Link
+            href="/#contact"
             className="inline-flex items-center gap-2 bg-gold hover:bg-gold/90 text-charcoal font-semibold text-sm px-5 py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-gold/20"
           >
             <Phone size={14} />
             Plan Your Tour
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -77,35 +104,41 @@ export default function Navbar() {
             className="md:hidden bg-charcoal/95 backdrop-blur-xl border-t border-white/5 overflow-hidden"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
-              <a
-                href="#tours"
-                onClick={() => setMobileOpen(false)}
-                className="text-white/70 hover:text-white py-2 transition-colors"
-              >
-                Signature Tours
-              </a>
-              <a
-                href="#destinations"
-                onClick={() => setMobileOpen(false)}
-                className="text-white/70 hover:text-white py-2 transition-colors"
-              >
-                Destinations
-              </a>
-              <a
-                href="#stories"
-                onClick={() => setMobileOpen(false)}
-                className="text-white/70 hover:text-white py-2 transition-colors"
-              >
-                The Experience
-              </a>
-              <a
-                href="#contact"
+              {navLinks.map((link) =>
+                link.external ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileOpen(false)}
+                    className="text-white/70 hover:text-white py-2 transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`py-2 transition-colors ${
+                      pathname === link.href
+                        ? "text-gold"
+                        : "text-white/70 hover:text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ),
+              )}
+              <Link
+                href="/#contact"
                 onClick={() => setMobileOpen(false)}
                 className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold/90 text-charcoal font-semibold text-sm px-5 py-3 rounded-full transition-all mt-2"
               >
                 <Phone size={14} />
                 Plan Your Tour
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

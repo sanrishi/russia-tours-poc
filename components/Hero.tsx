@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 const particles = [
@@ -80,19 +81,27 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="inline-block text-gold text-sm font-medium tracking-[0.2em] uppercase mb-6 border border-gold/20 rounded-full px-5 py-1.5"
           >
-            For Indian Travelers, by Indians Who Know Russia
+            For Indian Travelers, by Indosvetka
           </motion.span>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mb-6"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mb-4"
           >
-            Experience Russia.
-            <br />
-            <span className="text-gold">The Indian Way.</span>
+            <span className="text-gold">Trips to</span>{" "}
+            <span className="text-white">Russia</span>
           </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="text-lg sm:text-xl text-white/40 tracking-widest uppercase mb-8"
+          >
+            by Indosvetka
+          </motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -100,9 +109,9 @@ export default function Hero() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Curated small-group signature tours to Moscow, St. Petersburg &amp;
-            Kazan. Designed exclusively for Indian travelers — with visa
-            assistance, Indian cuisine, and Hindi-speaking guides.
+            Curated small-group tours to Moscow, St. Petersburg &amp; Kazan.
+            Designed exclusively for Indian travelers — with visa assistance,
+            Indian cuisine, and Hindi-speaking guides.
           </motion.p>
 
           <motion.div
@@ -111,22 +120,22 @@ export default function Hero() {
             transition={{ delay: 0.8, duration: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <a
-              href="#contact"
+            <Link
+              href="/places"
               className="group inline-flex items-center gap-2 bg-gold hover:bg-gold/90 text-charcoal font-semibold px-8 py-4 rounded-full text-base transition-all hover:shadow-xl hover:shadow-gold/20"
             >
-              Request Custom Itinerary
+              View Upcoming Trips
               <ArrowRight
                 size={18}
                 className="group-hover:translate-x-1 transition-transform"
               />
-            </a>
-            <a
-              href="#tours"
+            </Link>
+            <Link
+              href="/about"
               className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white/80 hover:text-white px-8 py-4 rounded-full text-base transition-all"
             >
-              View Signature Tours
-            </a>
+              About Me
+            </Link>
           </motion.div>
         </motion.div>
       </div>
