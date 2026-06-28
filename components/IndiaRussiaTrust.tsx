@@ -6,8 +6,8 @@ import { Plane, Users, IndianRupee, ShieldCheck } from "lucide-react";
 const stats = [
   {
     icon: Users,
-    value: "60K+",
-    label: "Indian tourists visited Russia in 2024",
+    value: "~120K",
+    label: "Indian tourists visited Russia in 2024 (up from ~60K in 2023)",
   },
   {
     icon: Plane,

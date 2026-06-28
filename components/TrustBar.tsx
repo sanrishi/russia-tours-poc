@@ -9,6 +9,7 @@ const trustItems = [
     label: "Indian-Owned & Operated",
     desc: "By Indians who know Russia",
   },
+  // PLACEHOLDER — years in business: confirm actual start date with client, do not deploy as-is
   {
     icon: Clock,
     label: "10+ Years Experience",

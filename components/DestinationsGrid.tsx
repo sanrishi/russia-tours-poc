@@ -12,6 +12,7 @@ const destinations = [
       "Red Square, Kremlin, world-class Indian restaurants, and halal dining in Russia's majestic capital.",
     image: "/moscow-hero.jpg",
     gradient: "from-crimson/80 via-crimson/40 to-transparent",
+    // PLACEHOLDER — confirm actual price with client
     price: "₹85,000",
     href: "#",
   },

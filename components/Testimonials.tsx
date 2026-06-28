@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 
+{/* PLACEHOLDER — replace with real client testimonials, do not deploy as-is */}
 const testimonials = [
   {
     name: "Priya Sharma",
@@ -81,15 +82,19 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="flex flex-wrap items-center justify-center gap-8 mt-12 pt-8 border-t border-white/5"
         >
+          {/* PLACEHOLDER — trust badges: replace with real client verifications, do not deploy as-is */}
           <span className="text-white/30 text-xs tracking-widest uppercase">
             Trusted Partners
           </span>
+          {/* PLACEHOLDER — real Google rating from client's actual listing */}
           <span className="text-white/50 text-sm font-medium">
             ★ 4.9 Google Rating
           </span>
+          {/* PLACEHOLDER — real traveler count from client's records */}
           <span className="text-white/50 text-sm">
             1,000+ Happy Indian Travelers
           </span>
+          {/* PLACEHOLDER — real license/certification number once obtained */}
           <span className="text-white/50 text-sm">
             Registered Tour Operator
           </span>
