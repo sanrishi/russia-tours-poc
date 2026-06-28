@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Users, Compass, Check, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
+// PLACEHOLDER — section not in SOW homepage spec. Confirm with client if this stays or goes.
 const signatureTours = [
   "Fixed 7-day itinerary",
   "Small groups (4-8 people)",

@@ -26,6 +26,7 @@ export default function ConversionFooter() {
     };
 
     try {
+      // PLACEHOLDER — currently delivers to test email. Replace hash with Sveta's FormSubmit endpoint.
       await fetch("https://formsubmit.co/ajax/13aa29576fde98edd847981ecffe4a5b", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

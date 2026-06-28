@@ -9,6 +9,7 @@ import {
   HeadphonesIcon,
 } from "lucide-react";
 
+// PLACEHOLDER — section not in SOW homepage spec. Confirm with client if this stays or goes.
 const highlights = [
   { icon: MapPin, text: "Private Red Square & Kremlin access" },
   { icon: UtensilsCrossed, text: "Halal-friendly & Indian dining options" },

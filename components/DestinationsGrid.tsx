@@ -23,6 +23,7 @@ const destinations = [
       "Hermitage, canals, ballet — with Indian-friendly amenities in the Venice of the North.",
     image: "/stpetersburg-card.jpg",
     gradient: "from-amber/80 via-amber/40 to-transparent",
+    // PLACEHOLDER — confirm actual price with client
     price: "₹75,000",
     href: "#",
   },
@@ -33,6 +34,7 @@ const destinations = [
       "Russia's Muslim heritage, Kul Sharif Mosque, and a halal food paradise on the Volga.",
     image: "/kazan-card.jpg",
     gradient: "from-emerald/80 via-emerald/40 to-transparent",
+    // PLACEHOLDER — confirm actual price with client
     price: "₹65,000",
     href: "#",
   },
