@@ -90,10 +90,9 @@ export default function PartnerPage() {
               terms.
             </p>
 
-            {/* PLACEHOLDER — this form currently does not deliver anywhere.
-            Replace with FormSubmit or a mailto action before going live. */}
+            {/* Form delivers to Sveta's inbox via FormSubmit */}
             <form
-              action="https://formsubmit.co/ajax/13aa29576fde98edd847981ecffe4a5b"
+              action="https://formsubmit.co/ajax/svetaindia07@gmail.com"
               method="POST"
               className="space-y-4"
             >

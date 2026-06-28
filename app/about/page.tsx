@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import CertificationsSection from "@/components/CertificationsSection";
 
 export default function AboutPage() {
   return (
@@ -65,6 +66,10 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="mt-16">
+          <CertificationsSection />
         </div>
       </div>
     </main>
