@@ -21,6 +21,8 @@ interface Trip {
   pricePerPerson: number;
   duration: string;
   groupSize: string;
+  ageGroup: string;
+  seats: number;
   description: string;
   itinerary: Day[];
   visaInfo: string;
@@ -31,11 +33,13 @@ interface Trip {
 const trips: Trip[] = [
   {
     title: "Moscow Discovery — 7 Days",
-    tagline: "The Ultimate Moscow Experience",
+    tagline: "August 2026 — Limited to 8 Seats",
     image: "/moscow-hero.jpg",
     pricePerPerson: 160000,
     duration: "7 days / 6 nights",
-    groupSize: "4–8 people",
+    groupSize: "Max 8 people",
+    ageGroup: "21–36",
+    seats: 8,
     description:
       "Explore Moscow like never before — from Red Square and Stalin's bunker to rooftop views and a limousine ride. All transfers, accommodation, breakfasts, and guided tours included.",
     included: [
@@ -154,15 +158,21 @@ export default function TripCard() {
             </div>
           </div>
 
-          <div className="p-6">
-            <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-white/50">
-              <span className="flex items-center gap-1.5">
-                <Clock size={14} /> {trip.duration}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <IndianRupee size={14} /> {trip.pricePerPerson.toLocaleString("en-IN")}/person
-              </span>
-            </div>
+            <div className="p-6">
+              <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-white/50">
+                <span className="flex items-center gap-1.5">
+                  <Clock size={14} /> {trip.duration}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <IndianRupee size={14} /> {trip.pricePerPerson.toLocaleString("en-IN")}/person
+                </span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-gold/10 text-gold text-xs font-medium">
+                  Age {trip.ageGroup}
+                </span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-crimson/10 text-red-400 text-xs font-medium">
+                  Only {trip.seats} seats
+                </span>
+              </div>
 
             <p className="text-white/60 text-sm leading-relaxed mb-6">
               {trip.description}
