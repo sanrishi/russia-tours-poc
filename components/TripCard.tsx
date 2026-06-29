@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, IndianRupee, Clock, Utensils, Bus, Shield, Check, X, ArrowRight } from "lucide-react";
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 interface Day {
@@ -138,16 +137,8 @@ export default function TripCard() {
           transition={{ delay: i * 0.15, duration: 0.6 }}
           className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden hover:border-gold/20 transition-all duration-500"
         >
-          <div className="relative aspect-[4/3] sm:aspect-[16/9]">
-            <Image
-              src={trip.image}
-              alt={trip.title}
-              fill
-              unoptimized
-              className="object-cover object-[center_30%]"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent" />
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] bg-charcoal/80">
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/20" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <p className="text-gold text-xs font-medium tracking-[0.15em] uppercase mb-1">
                 {trip.tagline}

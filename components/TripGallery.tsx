@@ -5,10 +5,16 @@ import Image from "next/image";
 
 const photos = [
   {
+    src: "/riverside_smiling.jpeg",
+    alt: "Moscow River welcome",
+    tag: "Welcome to Moscow",
+    featured: true,
+  },
+  {
     src: "/rooftop.jpeg",
     alt: "Rooftop view — Moscow skyline",
     tag: "Day 3 — Rooftop Visit",
-    featured: true,
+    featured: false,
   },
   {
     src: "/restraunt_photo.jpeg",
@@ -41,7 +47,7 @@ export default function TripGallery() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.4 }}
-            className={`relative group ${p.featured ? "row-span-2 h-full" : ""}`}
+            className={`relative group ${p.featured ? "row-span-3 h-full" : ""}`}
           >
             <div
               className={`relative rounded-xl overflow-hidden border border-white/5 ${
