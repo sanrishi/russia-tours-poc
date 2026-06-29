@@ -8,25 +8,21 @@ const photos = [
     src: "/riverside_smiling.jpeg",
     alt: "Moscow River welcome",
     tag: "Welcome to Moscow",
-    featured: true,
   },
   {
     src: "/rooftop.jpeg",
     alt: "Rooftop view — Moscow skyline",
     tag: "Day 3 — Rooftop Visit",
-    featured: false,
   },
   {
     src: "/restraunt_photo.jpeg",
     alt: "Indian restaurant dining",
     tag: "Dinner Inclusions",
-    featured: false,
   },
   {
     src: "/cafe-two-women.jpg",
     alt: "Café atmosphere — group gathering",
     tag: "Group Atmosphere",
-    featured: false,
   },
 ];
 
@@ -47,22 +43,16 @@ export default function TripGallery() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.4 }}
-            className={`relative group ${p.featured ? "row-span-3 h-full" : ""}`}
+            className="relative group"
           >
-            <div
-              className={`relative rounded-xl overflow-hidden border border-white/5 ${
-                p.featured
-                  ? "h-full"
-                  : "aspect-[9/16] sm:aspect-[3/4]"
-              }`}
-            >
+            <div className="relative aspect-[9/16] sm:aspect-[3/4] rounded-xl overflow-hidden border border-white/5">
               <Image
                 src={p.src}
                 alt={p.alt}
                 fill
                 unoptimized
-                className="object-cover object-left transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 50vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
               {p.tag && (
