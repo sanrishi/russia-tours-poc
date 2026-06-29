@@ -1,10 +1,10 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, IndianRupee, Clock, Utensils, Bus, Shield, Check, X } from "lucide-react";
+import { ChevronDown, IndianRupee, Clock, Utensils, Bus, Shield, Check, X, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
-import GroupBookingCallout from "./GroupBookingCallout";
+import Link from "next/link";
 
 interface Day {
   day: number;
@@ -138,13 +138,13 @@ export default function TripCard() {
           transition={{ delay: i * 0.15, duration: 0.6 }}
           className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden hover:border-gold/20 transition-all duration-500"
         >
-          <div className="relative h-56 sm:h-72">
+          <div className="relative aspect-[4/3] sm:aspect-[16/9]">
             <Image
               src={trip.image}
               alt={trip.title}
               fill
               unoptimized
-              className="object-cover"
+              className="object-cover object-[center_30%]"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent" />
@@ -163,7 +163,7 @@ export default function TripCard() {
                 <span className="flex items-center gap-1.5">
                   <Clock size={14} /> {trip.duration}
                 </span>
-                <span className="flex items-center gap-1.5">
+                <span className="flex items-center gap-1.5 text-gold font-bold">
                   <IndianRupee size={14} /> {trip.pricePerPerson.toLocaleString("en-IN")}/person
                 </span>
                 <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-gold/10 text-gold text-xs font-medium">
@@ -209,7 +209,7 @@ export default function TripCard() {
             </div>
 
             {/* Visa Info */}
-            <div className="flex items-start gap-3 mb-6 p-4 rounded-xl border border-white/5 bg-white/[0.02]">
+            <div className="flex items-start gap-3 mb-4 p-4 rounded-xl border border-white/5 bg-white/[0.02]">
               <Shield size={18} className="text-gold shrink-0 mt-0.5" />
               <div>
                 <p className="text-white text-sm font-semibold mb-0.5">
@@ -220,6 +220,14 @@ export default function TripCard() {
                 </p>
               </div>
             </div>
+
+            {/* CTA */}
+            <Link
+              href="/#contact"
+              className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-gold text-charcoal font-semibold text-sm hover:bg-gold/90 transition-all duration-300 mb-6"
+            >
+              Check Availability <ArrowRight size={16} />
+            </Link>
 
             {/* Accordion Itinerary */}
             <div className="border-t border-white/5 pt-4">
