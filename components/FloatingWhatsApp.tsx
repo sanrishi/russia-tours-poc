@@ -14,10 +14,14 @@ export default function FloatingWhatsApp() {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      drag
+      dragMomentum={false}
+      dragElastic={0}
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 1.5, duration: 0.4, ease: "easeOut" }}
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-whatsapp hover:bg-whatsapp/90 text-white px-5 py-3.5 rounded-full shadow-xl shadow-whatsapp/20 hover:shadow-whatsapp/30 transition-all duration-300 group"
+      whileDrag={{ scale: 1.1, cursor: "grabbing" }}
+      className="fixed bottom-6 right-6 z-50 touch-none flex items-center gap-2 bg-whatsapp hover:bg-whatsapp/90 text-white px-5 py-3.5 rounded-full shadow-xl shadow-whatsapp/20 hover:shadow-whatsapp/30 transition-all duration-300 group"
     >
       <MessageCircle size={22} className="fill-white" />
       <span className="text-sm font-semibold hidden sm:inline group-hover:block transition-all">
