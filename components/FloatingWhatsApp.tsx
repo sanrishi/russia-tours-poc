@@ -47,31 +47,24 @@ export default function FloatingWhatsApp() {
   }, [x]);
 
   const reveal = useCallback(() => {
-    if (hideTimer.current) clearTimeout(hideTimer.current);
     snap();
   }, [snap]);
 
-  const scheduleHide = useCallback(() => {
+  const onActivity = useCallback(() => {
     if (hideTimer.current) clearTimeout(hideTimer.current);
+    reveal();
     hideTimer.current = setTimeout(hide, 2000);
-  }, [hide]);
+  }, [reveal, hide]);
 
   useEffect(() => {
-    return () => { if (hideTimer.current) clearTimeout(hideTimer.current); };
-  }, []);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const ro = new ResizeObserver(() => {
-      const w = el.offsetWidth;
-      const cur = x.get();
-      if (cur === 0) x.set(w - 8);
-    });
-    ro.observe(el);
-    return () => ro.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    onActivity();
+    const events = ["scroll", "mousemove", "touchstart", "click", "keydown", "wheel"];
+    events.forEach((e) => window.addEventListener(e, onActivity, { passive: true }));
+    return () => {
+      if (hideTimer.current) clearTimeout(hideTimer.current);
+      events.forEach((e) => window.removeEventListener(e, onActivity));
+    };
+  }, [onActivity]);
 
   return (
     <motion.a
@@ -88,11 +81,9 @@ export default function FloatingWhatsApp() {
       drag
       dragMomentum={false}
       onDragStart={() => { dragging.current = true; if (hideTimer.current) clearTimeout(hideTimer.current); }}
-      onDragEnd={() => { dragging.current = false; snap(); scheduleHide(); }}
-      onMouseEnter={reveal}
-      onMouseLeave={scheduleHide}
-      onFocus={reveal}
-      onBlur={scheduleHide}
+      onDragEnd={() => { dragging.current = false; snap(); onActivity(); }}
+      onMouseEnter={() => { if (hideTimer.current) clearTimeout(hideTimer.current); reveal(); }}
+      onMouseLeave={onActivity}
       className="fixed bottom-6 right-6 z-50 touch-none flex items-center gap-2 bg-whatsapp text-white px-5 py-3.5 rounded-full shadow-xl shadow-whatsapp/20 cursor-pointer"
     >
       <MessageCircle size={22} className="shrink-0 fill-white" />
