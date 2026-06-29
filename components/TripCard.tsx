@@ -169,9 +169,6 @@ export default function TripCard() {
                 <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-gold/10 text-gold text-xs font-medium">
                   Age {trip.ageGroup}
                 </span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-crimson/10 text-red-400 text-xs font-medium">
-                  Only {trip.seats} seats
-                </span>
               </div>
 
             <p className="text-white/60 text-sm leading-relaxed mb-6">
