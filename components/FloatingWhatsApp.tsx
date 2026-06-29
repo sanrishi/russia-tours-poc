@@ -18,11 +18,15 @@ export default function FloatingWhatsApp() {
     const rect = el.getBoundingClientRect();
     const center = rect.left + rect.width / 2;
     const screenMid = window.innerWidth / 2;
+    const currentX = x.get();
 
     if (center < screenMid) {
-      animate(x, 24 - rect.left, { type: "spring", stiffness: 300, damping: 30 });
+      const target = currentX + 24 - rect.left;
+      animate(x, target, { type: "spring", stiffness: 300, damping: 30 });
     } else {
-      animate(x, 0, { type: "spring", stiffness: 300, damping: 30 });
+      const originalLeft = window.innerWidth - rect.width - 24;
+      const target = currentX + originalLeft - rect.left;
+      animate(x, target, { type: "spring", stiffness: 300, damping: 30 });
     }
   };
 
