@@ -141,7 +141,7 @@ export default function TipsPage() {
             {[
               {
                 title: "Payments & Cash",
-                body: "VISA and Mastercard issued outside Russia don't work. Carry USD or EUR in cash and exchange at airport or bank. Get a Yoomoney Tourist Card before your trip for QR-code payments — it works everywhere.",
+                body: "VISA and Mastercard issued outside Russia don't work. Carry USD or EUR in cash and exchange at airport or bank. Get a Yoomoney Tourist Card before your trip for QR-code payments — widely accepted.",
               },
               {
                 title: "Internet & Apps",
@@ -149,7 +149,7 @@ export default function TipsPage() {
               },
               {
                 title: "Metro Tips",
-                body: "The Moscow Metro is an attraction itself — palaces with chandeliers and mosaics. Trains run 5:30 AM–1 AM, every minute at peak. One ride costs under ₹40. Stations have English signs.",
+                body: "The Moscow Metro is an attraction itself — palaces with chandeliers and mosaics. Trains run 5:30 AM–1 AM, every minute at peak. One ride costs around ₹65–75. Stations have English signs.",
               },
               {
                 title: "Language",
