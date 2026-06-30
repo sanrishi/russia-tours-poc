@@ -97,7 +97,6 @@ export default function TourModels() {
                     src={activeTab === "signature" ? "/group-tour.png" : "/custom-tour.jpg"}
                     alt={activeTab === "signature" ? "Signature group tour" : "Custom itinerary"}
                     fill
-                    unoptimized
                     quality={100}
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"

@@ -138,12 +138,11 @@ export default function TripCard() {
           transition={{ delay: i * 0.15, duration: 0.6 }}
           className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden hover:border-gold/20 transition-all duration-500"
         >
-          <div className="relative aspect-[4/3] sm:aspect-[16/9]">
+          <div className="relative aspect-[4/3] sm:aspect-[16/9] bg-charcoal/50">
             <Image
               src="/soultrain-sunset-8064078.jpg"
               alt={trip.title}
               fill
-              unoptimized
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
             />

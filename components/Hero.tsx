@@ -27,7 +27,6 @@ export default function Hero() {
         src="/moscow-hero.jpg"
         alt="Moscow skyline at twilight"
         fill
-        unoptimized
         className="object-cover"
         priority
         sizes="100vw"

@@ -33,7 +33,6 @@ export default function CulturalImmersion() {
                 src="/tour-style.jpg"
                 alt="Tour style concept"
                 fill
-                unoptimized
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />

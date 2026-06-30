@@ -45,12 +45,11 @@ export default function TripGallery() {
             transition={{ delay: i * 0.1, duration: 0.4 }}
             className="relative group"
           >
-            <div className="relative aspect-[9/16] sm:aspect-[3/4] rounded-xl overflow-hidden border border-white/5">
+            <div className="relative aspect-[9/16] sm:aspect-[3/4] rounded-xl overflow-hidden border border-white/5 bg-charcoal/50">
               <Image
                 src={p.src}
                 alt={p.alt}
                 fill
-                unoptimized
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 50vw, 50vw"
               />

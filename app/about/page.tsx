@@ -20,12 +20,11 @@ export default function AboutPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-white/[0.03] border border-white/5 relative">
+          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-white/[0.03] border border-white/5 relative bg-charcoal/50">
             <Image
               src="/profile_sveta.JPG"
               alt="Sveta — Indosvetka"
               fill
-              unoptimized
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
