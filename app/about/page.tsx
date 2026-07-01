@@ -20,12 +20,12 @@ export default function AboutPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
-          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-white/[0.03] border border-white/5 relative bg-charcoal/50">
+          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-white/[0.03] border border-white/5 relative bg-charcoal/50 group">
             <Image
               src="/profile_sveta.JPG"
               alt="Sveta — Indosvetka"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
