@@ -13,6 +13,7 @@ export default function FloatingWhatsApp() {
   const ref = useRef<HTMLAnchorElement>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dragging = useRef(false);
+  const hovering = useRef(false);
 
   const snap = useCallback(() => {
     const el = ref.current;
@@ -53,7 +54,9 @@ export default function FloatingWhatsApp() {
   const onActivity = useCallback(() => {
     if (hideTimer.current) clearTimeout(hideTimer.current);
     reveal();
-    hideTimer.current = setTimeout(hide, 1500);
+    if (!hovering.current) {
+      hideTimer.current = setTimeout(hide, 1500);
+    }
   }, [reveal, hide]);
 
   useEffect(() => {
@@ -80,10 +83,10 @@ export default function FloatingWhatsApp() {
       whileTap={{ scale: 0.95 }}
       drag
       dragMomentum={false}
-      onDragStart={() => { dragging.current = true; if (hideTimer.current) clearTimeout(hideTimer.current); }}
+      onDragStart={() => { dragging.current = true; hovering.current = false; if (hideTimer.current) clearTimeout(hideTimer.current); }}
       onDragEnd={() => { dragging.current = false; snap(); onActivity(); }}
-      onMouseEnter={() => { if (hideTimer.current) clearTimeout(hideTimer.current); reveal(); }}
-      onMouseLeave={onActivity}
+      onMouseEnter={() => { hovering.current = true; if (hideTimer.current) clearTimeout(hideTimer.current); reveal(); }}
+      onMouseLeave={() => { hovering.current = false; onActivity(); }}
       className="fixed bottom-6 right-6 z-50 touch-none flex items-center gap-2 text-white px-5 py-3.5 rounded-full shadow-xl shadow-whatsapp/20 cursor-pointer bg-whatsapp overflow-hidden group hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-shadow duration-500"
     >
       <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#ffd700] via-[#ff1493] to-[#8b5cf6] opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300" />
