@@ -82,7 +82,7 @@ export default function FloatingWhatsApp() {
         delay: 1,
         duration: 0.3,
         ease: "easeOut",
-        y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 },
+        y: { duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 },
       }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
