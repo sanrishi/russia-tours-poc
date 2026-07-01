@@ -270,8 +270,8 @@ export default function TripCard() {
 const slides = [
   "/soultrain-sunset-8064078.jpg",
   "/unsplash-stbasil.jpg",
-  "/unsplash-traffic.jpg",
-  "/unsplash-city.jpg",
+  "/unsplash-kremlin.jpg",
+  "/unsplash-moscow-river.jpg",
 ];
 
 function HeaderSlideshow({ tagline, title }: { tagline: string; title: string }) {
@@ -323,7 +323,7 @@ function HeaderSlideshow({ tagline, title }: { tagline: string; title: string })
           <img
             src={slides[index]}
             alt=""
-            className={`absolute inset-0 w-full h-full ${index === 2 ? "object-cover object-bottom" : "object-cover"}`}
+            className="absolute inset-0 w-full h-full object-cover"
             style={{ transform: `scale(${1 + progress * 0.15})` }}
           />
         </motion.div>
