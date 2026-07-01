@@ -274,6 +274,7 @@ const slides = [
   "/moscow-city-2.webp",
   "/unsplash-stbasil.jpg",
   "/cattu-moscow-964445.jpg",
+  "/serbuxarev-street-4630827.jpg",
 ];
 
 function HeaderSlideshow({ tagline, title }: { tagline: string; title: string }) {
