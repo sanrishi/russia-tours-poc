@@ -268,11 +268,11 @@ export default function TripCard() {
 }
 
 const slides = [
-  "/soultrain-sunset-8064078.jpg",
   "/moscow-city-1.webp",
   "/moscow-city-3.webp",
-  "/moscow-city-2.webp",
   "/unsplash-stbasil.jpg",
+  "/soultrain-sunset-8064078.jpg",
+  "/moscow-city-2.webp",
   "/cattu-moscow-964445.jpg",
   "/serbuxarev-street-4630827.jpg",
 ];
