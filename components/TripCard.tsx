@@ -270,6 +270,9 @@ export default function TripCard() {
 
 const slides = [
   "/soultrain-sunset-8064078.jpg",
+  "/unsplash-sidewalk.jpg",
+  "/unsplash-traffic.jpg",
+  "/unsplash-city.jpg",
   "/riverside_smiling.jpeg",
   "/rooftop.jpeg",
 ];
@@ -290,7 +293,7 @@ function HeaderSlideshow({ tagline, title }: { tagline: string; title: string })
           next();
           return 0;
         }
-        return Math.min(p + 0.02, 1);
+        return Math.min(p + 0.01, 1);
       });
     }, 40);
     return () => clearInterval(timer);
