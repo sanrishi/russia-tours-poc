@@ -23,11 +23,12 @@ export default function GroupBookingCallout() {
         href={waHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 bg-whatsapp hover:bg-whatsapp/90 text-white font-semibold px-6 py-3.5 rounded-full text-sm transition-all hover:shadow-lg hover:shadow-whatsapp/20"
+        className="group relative inline-flex items-center gap-2 overflow-hidden bg-whatsapp text-white font-semibold px-6 py-3.5 rounded-full text-sm transition-shadow hover:shadow-lg hover:shadow-whatsapp/20"
       >
-        <Phone size={16} />
-        Get WhatsApp Quote
-        <ArrowRight size={16} />
+        <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#ffd700] via-[#ff1493] to-[#8b5cf6] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <Phone size={16} className="relative z-10" />
+        <span className="relative z-10">Get WhatsApp Quote</span>
+        <ArrowRight size={16} className="relative z-10" />
       </a>
     </div>
   );
