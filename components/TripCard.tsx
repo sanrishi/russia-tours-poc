@@ -333,7 +333,7 @@ function HeaderSlideshow({ tagline, title }: { tagline: string; title: string })
           />
         </motion.div>
       </AnimatePresence>
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/10 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 p-6">
         <p className="text-gold text-xs font-medium tracking-[0.15em] uppercase mb-1">
           {tagline}
