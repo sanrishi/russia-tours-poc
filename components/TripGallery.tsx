@@ -50,7 +50,7 @@ export default function TripGallery() {
                 src={p.src}
                 alt={p.alt}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-125"
                 sizes="(max-width: 768px) 50vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
