@@ -330,6 +330,7 @@ function HeaderSlideshow({ tagline, title }: { tagline: string; title: string })
             className={`absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out ${
               index === 3 ? "object-bottom" : ""
             }`}
+            style={{ filter: "brightness(1.05) contrast(1.1) saturate(1.15)" }}
           />
         </motion.div>
       </AnimatePresence>
