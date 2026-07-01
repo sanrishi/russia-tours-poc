@@ -328,7 +328,7 @@ function HeaderSlideshow({ tagline, title }: { tagline: string; title: string })
             src={slides[index]}
             alt=""
             className={`absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out ${
-              index === 2 || index === 3 ? "object-bottom" : ""
+              index === 3 ? "object-bottom" : ""
             }`}
           />
         </motion.div>
