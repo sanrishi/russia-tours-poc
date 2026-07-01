@@ -270,8 +270,9 @@ export default function TripCard() {
 const slides = [
   "/soultrain-sunset-8064078.jpg",
   "/unsplash-stbasil.jpg",
-  "/unsplash-kremlin.jpg",
-  "/unsplash-moscow-river.jpg",
+  "/moscow-city-1.webp",
+  "/moscow-city-2.webp",
+  "/moscow-city-3.webp",
 ];
 
 function HeaderSlideshow({ tagline, title }: { tagline: string; title: string }) {
